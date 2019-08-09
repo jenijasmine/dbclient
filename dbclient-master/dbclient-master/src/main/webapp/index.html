@@ -1,0 +1,41 @@
+<html>
+    <head>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    </head>
+ 
+    <body>
+        <center><H1> Text Area Input Form test</H1> <BR></center>
+         <BR>
+          <BR>
+          
+        <form  id="form" action="http://localhost:8080/check" method="post">
+          <center>  Please enter your text:<center>	
+            <BR>
+            <center> <TEXTAREA NAME="textarea1" ROWS="5" COLS="120" ID="inputcheck" ></TEXTAREA></center>
+                  <BR>
+                   <BR>
+                    <BR>
+                     <BR>
+           
+            <center><INPUT TYPE="SUBMIT" VALUE="Submit" id="submit" ></center>
+        </form>
+        <script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#form").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+       $.post( url, { name: $('#inputcheck').val() } );
+
+     
+      });
+    });
+</script>
+    </BODY>
+<HTML>
